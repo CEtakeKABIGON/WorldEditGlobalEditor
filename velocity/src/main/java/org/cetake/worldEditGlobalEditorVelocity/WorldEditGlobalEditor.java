@@ -49,27 +49,15 @@ public class WorldEditGlobalEditor {
         try {
 
             // 送信されたデータを解析
-            String[] parts = receivedMessage.split("\\|", 3);
+            String[] parts = receivedMessage.split("\\|", 2);
             if (parts.length < 2) {
                 logger.warn("Invalid message format received: {}", receivedMessage);
                 return;
             }
+            String playerName = parts[0];
 
-            String action = parts[0];
-            String playerName = parts[1];
-            String editData = parts[2];
-            switch (action) {
+            sendPluginMessage(playerName, receivedMessage);
 
-                case "ServerSwitch":
-                    String sendData = playerName + editData;
-                    // Velocityから各サーバーに転送
-                    sendPluginMessage(playerName, sendData);
-
-                case "EditConfig":
-
-                case "EditSave":
-
-            }
 
 
         } catch (Exception e) {
@@ -120,7 +108,7 @@ public class WorldEditGlobalEditor {
                     });
 
             future.complete(serverOptional); // 取得した情報を `CompletableFuture` にセット
-        }).delay(1, TimeUnit.SECONDS).schedule();
+        }).delay(2, TimeUnit.SECONDS).schedule();
 
         return future;
     }
