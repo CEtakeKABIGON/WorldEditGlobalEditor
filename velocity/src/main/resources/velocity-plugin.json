@@ -1,0 +1,7 @@
+{
+  "id": "worldeditglobaleditor",
+  "name": "WorldEditGlobalEditor",
+  "version": "1.0",
+  "main": "org.cetake.worldEditGlobalEditorVelocity.WorldEditGlobalEditor",
+  "authors": ["CE_take"]
+}

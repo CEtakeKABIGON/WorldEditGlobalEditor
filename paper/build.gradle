@@ -1,0 +1,18 @@
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT"
+    implementation(platform("com.intellectualsites.bom:bom-newest:1.52"))
+    compileOnly ('com.sk89q.worldedit:worldedit-bukkit:7.2.12')
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+tasks.jar {
+    archiveFileName.set('worldEditGlobalEditor-paper-1.0.jar')
+}

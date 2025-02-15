@@ -1,0 +1,5 @@
+name: worldEditGlobalEditor
+version: '1.0-SNAPSHOT'
+main: org.cetake.worldEditGlobalEditorFolia.WorldEditGlobalEditor
+api-version: '1.21'
+folia-supported: true
